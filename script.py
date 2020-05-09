@@ -11,14 +11,6 @@ with open('input.txt') as f:
 id = 1
 tasks = []
 for line in lines:
-    if id%4 == 0:
-        size = "8"
-    elif id%4 == 1:
-        size = "8.5"
-    elif id%4 == 2:
-        size = "9"
-    elif id%4 == 3:
-        size = "9.5"
     data = line.split(':')
     task = {
     "task_id": str(id),
@@ -29,12 +21,12 @@ for line in lines:
     "proxies": proxy,
     "nikeemail": data[0],
     "nikepassword": data[1],
-    "nikesize": size,
+    "nikesize": data[3],
     "starttime": time
     }
     id += 1
     tasks.append(task)
-output = open('output.txt', 'a')
+output = open('output.txt', 'w')
 output.write(json.dumps(tasks))
 
     
