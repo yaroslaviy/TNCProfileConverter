@@ -1,5 +1,10 @@
 import json
 
+productlink = input("Insert link: ")
+sku = input("Insert sku: ")
+proxy = input("Insert proxylist: ")
+time = input("Insert time (ex. 06:00:00): ")
+
 with open('input.txt') as f:
     lines = [line.rstrip() for line in f]
 
@@ -18,14 +23,14 @@ for line in lines:
     task = {
     "task_id": str(id),
     "site": "Snkrs CA",
-    "product": "https://www.nike.com/ca/launch/t/air-jordan-1-white-royal",
-    "sku": "555088-041",
+    "product": productlink,
+    "sku": sku,
     "profile": data[2],
-    "proxies": "anti",
+    "proxies": proxy,
     "nikeemail": data[0],
     "nikepassword": data[1],
     "nikesize": size,
-    "starttime": "06:00:00"
+    "starttime": time
     }
     id += 1
     tasks.append(task)
